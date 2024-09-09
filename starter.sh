@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pkg update && pkg upgrade -y
-pkg install git zsh tsu cronie termux-services -y
+pkg install git zoxide eza zsh tsu cronie termux-services -y
 
 termux-setup-storage
 
