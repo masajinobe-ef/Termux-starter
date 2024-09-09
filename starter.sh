@@ -3,7 +3,7 @@
 termux-change-repo
 
 pkg update && pkg upgrade -y
-pkg install git zoxide eza zsh tsu cronie termux-services termux-tools coreutils dash -y
+pkg install git bat zoxide eza zsh tsu cronie termux-services termux-tools coreutils dash -y
 
 termux-setup-storage
 
