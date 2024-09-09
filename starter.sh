@@ -1,5 +1,7 @@
 #!/bin/bash
 
+termux-change-repo
+
 pkg update && pkg upgrade -y
 pkg install git zoxide eza zsh tsu cronie termux-services -y
 
