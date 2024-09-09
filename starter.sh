@@ -1,63 +1,55 @@
 #!/bin/bash
 
-# Изменяем репозитории Termux
-termux-change-repo
-echo "Репозитории Termux изменены."
+GREEN='\033[0;32m'
+NC='\033[0m'
 
-# Настраиваем доступ к хранилищу
+termux-change-repo
+echo -e "${GREEN}Репозитории Termux изменены.${NC}"
+
 termux-setup-storage
-echo "Настройка доступа к хранилищу завершена. Даем время на разрешение..."
+echo -e "${GREEN}Настройка доступа к хранилищу завершена. Даем время на разрешение...${NC}"
 sleep 5
 
-# Обновляем пакеты
-echo "Обновление пакетов. Продолжить? (y/n)"
+echo -e "${GREEN}Обновление пакетов. Продолжить? (y/n)${NC}"
 read -r consent
 if [[ "$consent" == "y" ]]; then
     pkg update && pkg upgrade -y
-    echo "Пакеты обновлены."
+    echo -e "${GREEN}Пакеты обновлены.${NC}"
 else
-    echo "Обновление пакетов отменено."
-    exit 1
+    echo -e "${GREEN}Обновление пакетов отменено.${NC}"
 fi
 
-# Устанавливаем необходимые пакеты
-echo "Установка необходимых пакетов: git, bat, zoxide, eza, zsh, tsu, cronie, termux-services, termux-tools, coreutils, dash. Продолжить? (y/n)"
+echo -e "${GREEN}Установка необходимых пакетов: git, bat, zoxide, eza, zsh, tsu, cronie, termux-services, termux-tools, coreutils, dash. Продолжить? (y/n)${NC}"
 read -r consent
 if [[ "$consent" == "y" ]]; then
     pkg install git bat zoxide eza zsh tsu cronie termux-services termux-tools coreutils dash -y
-    echo "Необходимые пакеты установлены."
+    echo -e "${GREEN}Необходимые пакеты установлены.${NC}"
 else
-    echo "Установка пакетов отменена."
-    exit 1
+    echo -e "${GREEN}Установка пакетов отменена.${NC}"
 fi
 
-# Настраиваем git
-echo "Настройка git. Продолжить? (y/n)"
+echo -e "${GREEN}Настройка git. Продолжить? (y/n)${NC}"
 read -r consent
 if [[ "$consent" == "y" ]]; then
     git config --global credential.helper store
     git config --global user.email "priscilla.effects@gmail.com"
     git config --global user.name "masajinobe-ef"
     git config --global pull.rebase false
-    echo "Git настроен."
+    echo -e "${GREEN}Git настроен.${NC}"
 else
-    echo "Настройка git отменена."
-    exit 1
+    echo -e "${GREEN}Настройка git отменена.${NC}"
 fi
 
-# Устанавливаем Oh My Zsh
-echo "Установка Oh My Zsh. Продолжить? (y/n)"
+echo -e "${GREEN}Установка Oh My Zsh. Продолжить? (y/n)${NC}"
 read -r consent
 if [[ "$consent" == "y" ]]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    echo "Oh My Zsh установлен."
+    echo -e "${GREEN}Oh My Zsh установлен.${NC}"
 else
-    echo "Установка Oh My Zsh отменена."
-    exit 1
+    echo -e "${GREEN}Установка Oh My Zsh отменена.${NC}"
 fi
 
-# Клонируем темы и плагины для Zsh
-echo "Клонирование тем и плагинов для Zsh. Продолжить? (y/n)"
+echo -e "${GREEN}Клонирование тем и плагинов для Zsh. Продолжить? (y/n)${NC}"
 read -r consent
 if [[ "$consent" == "y" ]]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -65,22 +57,19 @@ if [[ "$consent" == "y" ]]; then
     git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
     git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    echo "Темы и плагины для Zsh клонированы."
+    echo -e "${GREEN}Темы и плагины для Zsh клонированы.${NC}"
 else
-    echo "Клонирование тем и плагинов отменено."
-    exit 1
+    echo -e "${GREEN}Клонирование тем и плагинов отменено.${NC}"
 fi
 
-# Копируем конфигурационные файлы
-echo "Копирование конфигурационных файлов .zshrc и .p10k.zsh. Продолжить? (y/n)"
+echo -e "${GREEN}Копирование конфигурационных файлов .zshrc и .p10k.zsh. Продолжить? (y/n)${NC}"
 read -r consent
 if [[ "$consent" == "y" ]]; then
     cp -r .zshrc ~/
     cp -r .p10k.zsh ~/
-    echo "Конфигурационные файлы скопированы."
+    echo -e "${GREEN}Конфигурационные файлы скопированы.${NC}"
 else
-    echo "Копирование конфигурационных файлов отменено."
-    exit 1
+    echo -e "${GREEN}Копирование конфигурационных файлов отменено.${NC}"
 fi
 
-echo "Скрипт завершен."
+echo -e "${GREEN}Скрипт завершен.${NC}"
