@@ -13,7 +13,7 @@ sleep 10
 echo "Обновление пакетов. Продолжить? (y/n)"
 read -r consent
 if [[ "$consent" == "y" ]]; then
-    pkg update && pkg upgrade
+    pkg update && pkg upgrade -y
     echo "Пакеты обновлены."
 else
     echo "Обновление пакетов отменено."
