@@ -11,7 +11,7 @@ echo -e "${GREEN}Настройка доступа к хранилищу зав�
 sleep 5
 
 pkg update && pkg upgrade -y
-pkg install git lazygit yazi wget bat zoxide eza zsh tsu cronie termux-services termux-tools coreutils dash -y
+pkg install git lazygit yazi wget bat zoxide eza zsh tsu cronie ripgrep termux-services termux-tools coreutils dash -y
 
 git config --global credential.helper store
 git config --global user.email "priscilla.effects@gmail.com"
