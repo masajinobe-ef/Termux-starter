@@ -72,4 +72,13 @@ else
     echo -e "${GREEN}Копирование конфигурационных файлов отменено.${NC}"
 fi
 
+echo -e "${GREEN}zsh в качестве оболочки по умолчанию? (y/n)${NC}"
+read -r consent
+if [[ "$consent" == "y" ]]; then
+    chsh -s zsh
+    echo -e "${GREEN}zsh установлен в качестве оболочки.${NC}"
+else
+    echo -e "${GREEN}bash установлен в качестве оболочки.${NC}"
+fi
+
 echo -e "${GREEN}Скрипт завершен.${NC}"
