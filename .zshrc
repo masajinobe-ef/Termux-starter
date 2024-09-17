@@ -10,7 +10,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 
 plugins=(
-    gi
+    git
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-history-substring-search
